@@ -23,10 +23,10 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class Robot extends IterativeRobot {
 	
-	TalonSRX leftDrive = new TalonSRX(14);
+	Drive drive = new Drive(14,0);
 	
 	public void robotInit() {
-		leftDrive.set(ControlMode.PercentOutput, 0);
+		drive.Init();
 	}
 
 	
@@ -36,7 +36,7 @@ public class Robot extends IterativeRobot {
 	}
 
 	
-
+ 
 	public void autonomousPeriodic() {
 		
 	}
@@ -44,6 +44,7 @@ public class Robot extends IterativeRobot {
 	
 
 	public void teleopPeriodic() {
+		drive.Move();
 	}
 
 

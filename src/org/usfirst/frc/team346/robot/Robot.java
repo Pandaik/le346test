@@ -7,6 +7,9 @@
 
 package org.usfirst.frc.team346.robot;
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -20,9 +23,10 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class Robot extends IterativeRobot {
 	
+	TalonSRX leftDrive = new TalonSRX(14);
 	
 	public void robotInit() {
-		
+		leftDrive.set(ControlMode.PercentOutput, 0);
 	}
 
 	

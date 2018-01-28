@@ -34,7 +34,7 @@ public class SingleStickControl {
 	
 	public double ControllerOutputR() {
 		if(xbxcontrol.getX(Hand.kLeft)>0 && xbxcontrol.getY(Hand.kLeft)!=0) {
-			sideRight = Math.round(((xbxcontrol.getY(Hand.kLeft) + xbxcontrol.getX(Hand.kLeft))*100));
+			sideRight = (xbxcontrol.getY(Hand.kLeft) + xbxcontrol.getX(Hand.kLeft));
 		}
 		//if(xbxcontrol.getX(Hand.kLeft)<0 && xbxcontrol.getY(Hand.kleft)!=0) {
 			

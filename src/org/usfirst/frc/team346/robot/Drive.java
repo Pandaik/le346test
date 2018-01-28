@@ -4,6 +4,7 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 import edu.wpi.first.wpilibj.GenericHID.Hand;
+import edu.wpi.first.wpilibj.GenericHID.RumbleType;
 import edu.wpi.first.wpilibj.XboxController;
 
 public class Drive {
@@ -25,5 +26,6 @@ public class Drive {
 	public void Move() {
 		leftDrive.set(ControlMode.PercentOutput, xbx.getY(Hand.kLeft));
 		rightDrive.set(ControlMode.PercentOutput, xbx.getY(Hand.kLeft));
+		xbx.setRumble(RumbleType.kRightRumble, 100);
 	}
 }

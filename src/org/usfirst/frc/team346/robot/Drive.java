@@ -1,5 +1,7 @@
 package org.usfirst.frc.team346.robot;
 
+import org.usfirst.frc.team346.control.SingleStickControl;
+
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
@@ -11,20 +13,26 @@ public class Drive {
 	
 	TalonSRX leftDrive;
 	TalonSRX rightDrive;
-	XboxController xbx;
 	
-	public Drive(int driveLeft, int driveLeftSlave1, int xbox) {
+	SingleStickControl controller;
+	
+	public Drive(int driveLeft, int driveLeftSlave1, int controllerID) {
 		leftDrive = new TalonSRX(driveLeft);
 		rightDrive = new TalonSRX(driveLeftSlave1);
 		
-		xbx = new XboxController(xbox);
+		controller = new SingleStickControl(controllerID);
+		
 	}
 	public void Init() {
+		
 		leftDrive.set(ControlMode.PercentOutput, 0);
 		rightDrive.set(ControlMode.PercentOutput, 0);
+		
 	}
 	public void Move() {
-		leftDrive.set(ControlMode.PercentOutput, xbx.getY(Hand.kLeft));
-		rightDrive.set(ControlMode.PercentOutput, xbx.getY(Hand.kLeft));
+		
+		leftDrive.set(ControlMode.PercentOutput, controller.ControllerOutputL());
+		rightDrive.set(ControlMode.PercentOutput, controller.ControllerOutputR());
+		
 	}
 }

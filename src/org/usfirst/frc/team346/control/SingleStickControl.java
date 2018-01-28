@@ -34,14 +34,13 @@ public class SingleStickControl {
 	
 	public double ControllerOutputR() {
 		if(xbxcontrol.getX(Hand.kLeft)>0 && xbxcontrol.getY(Hand.kLeft)!=0) {
-			sideRight = Math.round(((1 - xbxcontrol.getX(Hand.kLeft))*100));
+			sideRight = Math.round(((xbxcontrol.getY(Hand.kLeft) + xbxcontrol.getX(Hand.kLeft))*100));
 		}
 		//if(xbxcontrol.getX(Hand.kLeft)<0 && xbxcontrol.getY(Hand.kleft)!=0) {
 			
 		//}
-		if(xbxcontrol.getX(Hand.kLeft) == 0 && xbxcontrol.getY(Hand.kLeft) == 0) {
-			sideRight = 0;
-		}
+	
+		
 		
 		return sideRight;
 	}

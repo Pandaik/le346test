@@ -25,8 +25,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class Robot extends IterativeRobot {
 	
-	//Drive drive = new Drive(14, 16, 0);
-	SingleStickControl con = new SingleStickControl(0);
+	//Drive drive = new Drive(14, 16, 4);
+	SingleStickControl con = new SingleStickControl(4);
 	public void robotInit() {
 		//drive.Init();
 	}

@@ -27,8 +27,10 @@ public class Robot extends IterativeRobot {
 	
 	//Drive drive = new Drive(14, 16, 4);
 	SingleStickControl con = new SingleStickControl(4);
+	TalonSRX testTalon = new TalonSRX(16);
 	public void robotInit() {
 		//drive.Init();
+		testTalon.set(ControlMode.PercentOutput, 0);
 	}
 
 	
@@ -48,6 +50,7 @@ public class Robot extends IterativeRobot {
 	public void teleopPeriodic() {
 		//drive.Move();
 		System.out.println(con.ControllerOutputR());
+		testTalon.set(ControlMode.PercentOutput, con.ControllerOutputR());
 	}
 
 

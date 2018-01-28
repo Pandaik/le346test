@@ -26,6 +26,5 @@ public class Drive {
 	public void Move() {
 		leftDrive.set(ControlMode.PercentOutput, xbx.getY(Hand.kLeft));
 		rightDrive.set(ControlMode.PercentOutput, xbx.getY(Hand.kLeft));
-		xbx.setRumble(RumbleType.kRightRumble, 100);
 	}
 }

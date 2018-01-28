@@ -7,6 +7,8 @@
 
 package org.usfirst.frc.team346.robot;
 
+import org.usfirst.frc.team346.control.SingleStickControl;
+
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
@@ -23,10 +25,10 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class Robot extends IterativeRobot {
 	
-	Drive drive = new Drive(14, 16, 0);
-	
+	//Drive drive = new Drive(14, 16, 0);
+	SingleStickControl con = new SingleStickControl(0);
 	public void robotInit() {
-		drive.Init();
+		//drive.Init();
 	}
 
 	
@@ -44,7 +46,8 @@ public class Robot extends IterativeRobot {
 	
 
 	public void teleopPeriodic() {
-		drive.Move();
+		//drive.Move();
+		System.out.println(con.ControllerOutputR());
 	}
 
 

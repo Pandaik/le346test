@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.GenericHID.RumbleType;
 import edu.wpi.first.wpilibj.XboxController;
 
 public class SingleStickControl {
-	int sideRight;
+	double sideRight;
 	int sideLeft;
 	int dir;
 	Drive driveTrain;
@@ -19,17 +19,23 @@ public class SingleStickControl {
 //		if(xbxcontrol.getY(Hand.kLeft) <5 && xbxcontrol.getY(Hand.kLeft))
 	
 	public void getDirection() {
-		
+		//forward = -1
+		//backwards = 1
+		if(xbxcontrol.getY(Hand.kLeft)>0) {
+			dir = 1;
+		}
+		if(xbxcontrol.getY(Hand.kLeft)<0) {
+			dir = -1;
+		}
+		else{
+			dir = 0;
+		}
 	}
 	
 	public double ControllerOutputR() {
-		
-		//forward = -1
-		//backwards = 1
-		
-		if(dir!=0) {
-			
-		}	
+		if(xbxcontrol.getX(Hand.kLeft)>0 && xbxcontrol.getY(Hand.kLeft)!=0) {
+			sideRight = (1 - xbxcontrol.getX(Hand.kLeft))*100;
+		}
 		
 		return sideRight;
 	}

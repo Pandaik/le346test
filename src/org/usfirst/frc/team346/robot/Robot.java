@@ -53,7 +53,6 @@ public class Robot extends IterativeRobot {
 		testTalon.set(ControlMode.PercentOutput, con.ControllerOutputR());
 	}
 
-
 	public void testPeriodic() {
 	}
 }

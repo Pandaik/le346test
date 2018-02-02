@@ -10,11 +10,28 @@ public class SingleStickOut {
 	
 	SingleStickControl con;
 	
-	public SingleStickOut() {
-		con = new SingleStickControl(4);
+	public SingleStickOut(int control) {
+		con = new SingleStickControl(control);
 	}
 	
 	public double OutR () {
+		double v = con.ControllerOutputR();
+		
+		if(con.ControllerOutputR() > d) {
+			rightSide = v;
+		}
+		
+		if(con.ControllerOutputR() < nd) {
+			rightSide = v;
+		}
+		
+		if(con.ControllerOutputR() < d && con.ControllerOutputR() > nd) {
+			rightSide = 0;
+		}
+		
+		return rightSide;
+	}
+	public double OutL () {
 		double v = con.ControllerOutputR();
 		
 		if(con.ControllerOutputR() > d) {

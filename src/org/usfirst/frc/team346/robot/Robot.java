@@ -29,6 +29,7 @@ public class Robot extends IterativeRobot {
 
 	public void robotInit() {
 		testTalon.set(ControlMode.PercentOutput, 0);
+		
 	}
 
 	
@@ -50,8 +51,8 @@ public class Robot extends IterativeRobot {
 	 */
 	public void teleopPeriodic() {
 		//System.out.println(con.OutR());
+		//testTalon.set(ControlMode.PercentOutput, con.OutR());
 		
-		testTalon.set(ControlMode.PercentOutput, con.OutR());
 	}
 		
 	

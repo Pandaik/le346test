@@ -12,6 +12,7 @@ public class SingleStickOut {
 	
 	public SingleStickOut() {
 		con = new SingleStickControl(4);
+		con.getSticks();
 	}
 	
 	public double OutR () {

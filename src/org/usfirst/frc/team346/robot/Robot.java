@@ -24,7 +24,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * project.
  */
 public class Robot extends IterativeRobot {
-	SingleStickOut con = new SingleStickOut();
+	SingleStickOut con = new SingleStickOut(4);
 	TalonSRX testTalon = new TalonSRX(16);
 
 	public void robotInit() {

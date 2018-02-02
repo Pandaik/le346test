@@ -7,7 +7,7 @@
 
 package org.usfirst.frc.team346.robot;
 
-import org.usfirst.frc.team346.control.SingleStickControl;
+
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
@@ -24,12 +24,10 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * project.
  */
 public class Robot extends IterativeRobot {
-	
-	//Drive drive = new Drive(14, 16, 4);
 	SingleStickControl con = new SingleStickControl(4);
 	TalonSRX testTalon = new TalonSRX(16);
+
 	public void robotInit() {
-		//drive.Init();
 		testTalon.set(ControlMode.PercentOutput, 0);
 	}
 
@@ -39,20 +37,27 @@ public class Robot extends IterativeRobot {
 		
 	}
 
+	/**
+	 * This function is called periodically during autonomous.
+	 */
 	
- 
 	public void autonomousPeriodic() {
 		
 	}
 
-	
-
+	/**
+	 * This function is called periodically during operator control.
+	 */
 	public void teleopPeriodic() {
-		//drive.Move();
-		System.out.println(con.ControllerOutputR());
+		//System.out.println(con.ControllerOutputR());
+		
 		testTalon.set(ControlMode.PercentOutput, con.ControllerOutputR());
 	}
-
+		
+	/**
+	 * This function is called periodically during test mode.
+	 */
+	
 	public void testPeriodic() {
 	}
 }

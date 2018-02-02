@@ -1,9 +1,8 @@
-package org.usfirst.frc.team346.control;
 
-import org.usfirst.frc.team346.robot.Drive;
+package org.usfirst.frc.team346.robot;
 
-import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.GenericHID.Hand;
 
 public class SingleStickControl {
 	double sideRight;
@@ -13,11 +12,14 @@ public class SingleStickControl {
 	Drive driveTrain;
 	XboxController xbxcontrol;
 	
-	double x = xbxcontrol.getX(Hand.kLeft);
-	double y = xbxcontrol.getY(Hand.kLeft);
+	double x;
+	double y;
 	
 	public SingleStickControl(int controller) {
 		xbxcontrol = new XboxController(controller);
+		x = xbxcontrol.getX(Hand.kLeft);
+		y = xbxcontrol.getY(Hand.kLeft);
+		
 	}
 //	public void ControllerDropout() {
 //		if(xbxcontrol.getY(Hand.kLeft) <5 && xbxcontrol.getY(Hand.kLeft))
@@ -37,6 +39,8 @@ public class SingleStickControl {
 //	}
 	
 	public double ControllerOutputR() {
+		x = xbxcontrol.getX(Hand.kLeft);
+		y = xbxcontrol.getY(Hand.kLeft); 
 		if(x>0) {
 			sideRight = (x - 1) *y;
 		}
@@ -63,6 +67,7 @@ public class SingleStickControl {
 		if(xbxcontrol.getX(Hand.kLeft)>0 && xbxcontrol.getY(Hand.kLeft)>0) {
 			sideLeft = -1*(Math.pow((Math.pow(xbxcontrol.getX(Hand.kLeft), 2) + Math.pow(xbxcontrol.getY(Hand.kLeft), 2)), .5));
 		}
+		
 		if (xbxcontrol.getY(Hand.kLeft)==0) {
 			sideLeft = 0;
 		}

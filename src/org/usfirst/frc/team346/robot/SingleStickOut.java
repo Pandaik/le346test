@@ -4,15 +4,19 @@ public class SingleStickOut {
 	
 	private double rightSide;
 	private double leftSide;
+	private double outr;
+	private double outl;
 	
 	final double d = .2;
 	final double nd = -.2;
 	
 	SingleStickControl con;
 	
+	Round rounding;
 
 	public SingleStickOut(int control) {
 		con = new SingleStickControl(control);
+		rounding = new Round();
 		//con.getSticks();
 	}
 	
@@ -30,9 +34,10 @@ public class SingleStickOut {
 		if(con.ControllerOutputR() < d && con.ControllerOutputR() > nd) {
 			rightSide = 0;
 		}
-		
-		return rightSide;
+		outr = rounding.calc(rightSide);
+		return outr;
 	}
+	//Gavin has big gay
 	public double OutL () {
 		double v = con.ControllerOutputL();
 		

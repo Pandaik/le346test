@@ -33,6 +33,7 @@ public class SingleStickOut {
 		
 		return rightSide;
 	}
+	//Gavin has big gay
 	public double OutL () {
 		double v = con.ControllerOutputL();
 		

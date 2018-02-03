@@ -30,8 +30,9 @@ public class SingleStickControl {
 	}
 	
 	public double ControllerOutputR() {
-		
-		 
+	
+		x = xbxcontrol.getX(Hand.kLeft);
+		y = xbxcontrol.getY(Hand.kLeft);
 		if(x>0&&y>0) {
 			sideRight = -1*(Math.pow(Math.abs((x-1)*y), .5));
 		}

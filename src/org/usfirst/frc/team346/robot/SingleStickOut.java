@@ -5,15 +5,15 @@ public class SingleStickOut {
 	private double rightSide;
 	private double leftSide;
 	
-	final double d = .4;
-	final double nd = -.4;
+	final double d = .2;
+	final double nd = -.2;
 	
 	SingleStickControl con;
 	
 
 	public SingleStickOut(int control) {
 		con = new SingleStickControl(control);
-		con.getSticks();
+		//con.getSticks();
 	}
 	
 	public double OutR () {
@@ -37,17 +37,17 @@ public class SingleStickOut {
 		double v = con.ControllerOutputL();
 		
 		if(con.ControllerOutputL() > d) {
-			rightSide = v;
+			leftSide = v;
 		}
 		
 		if(con.ControllerOutputL() < nd) {
-			rightSide = v;
+			leftSide = v;
 		}
 		
 		if(con.ControllerOutputL() < d && con.ControllerOutputL() > nd) {
-			rightSide = 0;
+			leftSide = 0;
 		}
 		
-		return rightSide;
+		return leftSide;
 	}
 }

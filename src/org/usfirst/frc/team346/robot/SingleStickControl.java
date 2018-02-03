@@ -59,10 +59,10 @@ public class SingleStickControl {
 			sideLeft = Math.pow((x + 1) *y, .5);
 		}
 		if(x>0 && y<0) {
-			sideLeft = (Math.pow((Math.pow(x, 2) + Math.pow(y, 2)), .5));
+			sideLeft = Math.pow((Math.pow((Math.pow(x, 2) + Math.pow(y, 2)), .5)), .5);
 		}
 		if(x>0 && y>0) {
-			sideLeft = -1*(Math.pow((Math.pow(x, 2) + Math.pow(y, 2)), .5));
+			sideLeft = -1*(Math.pow((Math.pow((Math.pow(x, 2) + Math.pow(y, 2)), .5)), .5));
 		}
 		
 		if (y==0 && x == 0) {

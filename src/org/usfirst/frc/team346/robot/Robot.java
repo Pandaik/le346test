@@ -12,7 +12,9 @@ package org.usfirst.frc.team346.robot;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
+import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -24,9 +26,10 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * project.
  */
 public class Robot extends IterativeRobot {
-	SingleStickOut con = new SingleStickOut(4);
+	SingleStickControl con = new SingleStickControl(4);
 	TalonSRX testTalon = new TalonSRX(16);
 	TalonSRX testTalon2 = new TalonSRX(14);
+	//XboxController xbx = new XboxController(4);
 	
 	public void robotInit() {
 		testTalon.set(ControlMode.PercentOutput, 0);
@@ -51,9 +54,10 @@ public class Robot extends IterativeRobot {
 	 * This function is called periodically during operator control.
 	 */
 	public void teleopPeriodic() {
-		System.out.println(con.OutR());
+		System.out.println(con.ControllerOutputR());
 		//testTalon.set(ControlMode.PercentOutput, con.OutR());
 		//testTalon2.set(ControlMode.PercentOutput, -1*(con.OutL()));
+		//testTalon.set(ControlMode.PercentOutput, xbx.getY(Hand.kLeft));
 	}
 		
 	

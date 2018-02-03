@@ -51,9 +51,9 @@ public class Robot extends IterativeRobot {
 	 * This function is called periodically during operator control.
 	 */
 	public void teleopPeriodic() {
-		//System.out.println(con.OutR());
-		testTalon.set(ControlMode.PercentOutput, con.OutR());
-		testTalon2.set(ControlMode.PercentOutput, -1*(con.OutL()));
+		System.out.println(con.OutR());
+		//testTalon.set(ControlMode.PercentOutput, con.OutR());
+		//testTalon2.set(ControlMode.PercentOutput, -1*(con.OutL()));
 	}
 		
 	

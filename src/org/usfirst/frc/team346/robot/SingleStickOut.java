@@ -5,15 +5,17 @@ public class SingleStickOut {
 	private double rightSide;
 	private double leftSide;
 	
-	final double d = .4;
-	final double nd = -.4;
+	final double d = .2;
+	final double nd = -.2;
 	
 	SingleStickControl con;
 	
+	Round rounding;
 
 	public SingleStickOut(int control) {
 		con = new SingleStickControl(control);
-		con.getSticks();
+		rounding = new Round();
+		//con.getSticks();
 	}
 	
 	public double OutR () {
@@ -30,24 +32,23 @@ public class SingleStickOut {
 		if(con.ControllerOutputR() < d && con.ControllerOutputR() > nd) {
 			rightSide = 0;
 		}
-		
 		return rightSide;
 	}
 	public double OutL () {
-		double v = con.ControllerOutputR();
+		double v = con.ControllerOutputL();
 		
-		if(con.ControllerOutputR() > d) {
-			rightSide = v;
+		if(con.ControllerOutputL() > d) {
+			leftSide = v;
 		}
 		
-		if(con.ControllerOutputR() < nd) {
-			rightSide = v;
+		if(con.ControllerOutputL() < nd) {
+			leftSide = v;
 		}
 		
-		if(con.ControllerOutputR() < d && con.ControllerOutputR() > nd) {
-			rightSide = 0;
+		if(con.ControllerOutputL() < d && con.ControllerOutputL() > nd) {
+			leftSide = 0;
 		}
 		
-		return rightSide;
+		return leftSide;
 	}
 }

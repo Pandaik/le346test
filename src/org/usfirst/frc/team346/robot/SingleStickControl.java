@@ -52,17 +52,20 @@ public class SingleStickControl {
 		return sideRight;
 	}
 	public double ControllerOutputL() {
-		if(xbxcontrol.getX(Hand.kLeft)<0) {
-			sideLeft = (xbxcontrol.getX(Hand.kLeft) + 1) *xbxcontrol.getY(Hand.kLeft);
+		if(x<0&&y>0) {
+			sideLeft = -1*(Math.pow(Math.abs((x + 1) *y), .5));
 		}
-		if(xbxcontrol.getX(Hand.kLeft)>0 && xbxcontrol.getY(Hand.kLeft)<0) {
-			sideLeft = (Math.pow((Math.pow(xbxcontrol.getX(Hand.kLeft), 2) + Math.pow(xbxcontrol.getY(Hand.kLeft), 2)), .5));
+		if(x<0&&y<0) {
+			sideLeft = Math.pow((x + 1) *y, .5);
 		}
-		if(xbxcontrol.getX(Hand.kLeft)>0 && xbxcontrol.getY(Hand.kLeft)>0) {
-			sideLeft = -1*(Math.pow((Math.pow(xbxcontrol.getX(Hand.kLeft), 2) + Math.pow(xbxcontrol.getY(Hand.kLeft), 2)), .5));
+		if(x>0 && y<0) {
+			sideLeft = (Math.pow((Math.pow(x, 2) + Math.pow(y, 2)), .5));
+		}
+		if(x>0 && y>0) {
+			sideLeft = -1*(Math.pow((Math.pow(x, 2) + Math.pow(y, 2)), .5));
 		}
 		
-		if (xbxcontrol.getY(Hand.kLeft)==0) {
+		if (y==0 && x == 0) {
 			sideLeft = 0;
 		}
 		

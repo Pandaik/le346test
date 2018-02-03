@@ -24,11 +24,12 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * project.
  */
 public class Robot extends IterativeRobot {
-	SingleStickControl con = new SingleStickControl(4);
+	SingleStickOut con = new SingleStickOut(4);
 	TalonSRX testTalon = new TalonSRX(16);
 
 	public void robotInit() {
 		testTalon.set(ControlMode.PercentOutput, 0);
+		
 	}
 
 	
@@ -49,14 +50,12 @@ public class Robot extends IterativeRobot {
 	 * This function is called periodically during operator control.
 	 */
 	public void teleopPeriodic() {
-		//System.out.println(con.ControllerOutputR());
+		//System.out.println(con.OutR());
+		//testTalon.set(ControlMode.PercentOutput, con.OutR());
 		
-		testTalon.set(ControlMode.PercentOutput, con.ControllerOutputR());
 	}
 		
-	/**
-	 * This function is called periodically during test mode.
-	 */
+	
 	
 	public void testPeriodic() {
 	}

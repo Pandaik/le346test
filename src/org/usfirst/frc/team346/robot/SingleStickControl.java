@@ -5,8 +5,9 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.GenericHID.Hand;
 
 public class SingleStickControl {
-	double sideRight;
-	double sideLeft;
+	private double sideRight;
+	private double sideLeft;
+	
 	
 	int dir;
 	Drive driveTrain;
@@ -23,32 +24,25 @@ public class SingleStickControl {
 	}
 //	public void ControllerDropout() {
 //		if(xbxcontrol.getY(Hand.kLeft) <5 && xbxcontrol.getY(Hand.kLeft))
-	
-//	public void getDirection() {
-//		//forward = -1
-//		//backwards = 1
-//		if(xbxcontrol.getY(Hand.kLeft)>0) {
-//			dir = 1;
-//		}
-//		if(xbxcontrol.getY(Hand.kLeft)<0) {
-//			dir = -1;
-//		}
-//		else{
-//			dir = 0;
-//		}
-//	}
+	public void getSticks() {
+		x = xbxcontrol.getX(Hand.kLeft);
+		y = xbxcontrol.getY(Hand.kLeft);
+	}
 	
 	public double ControllerOutputR() {
-		x = xbxcontrol.getX(Hand.kLeft);
-		y = xbxcontrol.getY(Hand.kLeft); 
-		if(x>0) {
-			sideRight = (x - 1) *y;
+		
+		 
+		if(x>0&&y>0) {
+			sideRight = -1*(Math.pow(Math.abs((x-1)*y), .5));
+		}
+		if(x>0&&y<0) {
+			sideRight = Math.pow((x-1)*y, .5);
 		}
 		if(x<0 && y<0) {
-			sideRight = (Math.pow((Math.pow(x, 2) + Math.pow(y, 2)), .5)); 
+			sideRight = (Math.pow((Math.pow((Math.pow(x, 2) + Math.pow(y, 2)), .5)),.5)); 
 		}
 		if(x<0 && y>0) {
-			sideRight = -1*(Math.pow((Math.pow(x, 2) + Math.pow(y, 2)), .5));
+			sideRight = -1*(Math.pow((Math.pow((Math.pow(x, 2) + Math.pow(y, 2)), .5)),.5));
 		}
 		if (y==0 && x == 0) {
 			sideRight = 0;

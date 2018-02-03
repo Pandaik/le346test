@@ -34,17 +34,17 @@ public class SingleStickOut {
 		return rightSide;
 	}
 	public double OutL () {
-		double v = con.ControllerOutputR();
+		double v = con.ControllerOutputL();
 		
-		if(con.ControllerOutputR() > d) {
+		if(con.ControllerOutputL() > d) {
 			rightSide = v;
 		}
 		
-		if(con.ControllerOutputR() < nd) {
+		if(con.ControllerOutputL() < nd) {
 			rightSide = v;
 		}
 		
-		if(con.ControllerOutputR() < d && con.ControllerOutputR() > nd) {
+		if(con.ControllerOutputL() < d && con.ControllerOutputL() > nd) {
 			rightSide = 0;
 		}
 		

@@ -76,20 +76,32 @@ public class SingleStickControl {
 		return sideRight;
 	}
 	public double ControllerOutputL() {
-		if(x<0&&y>0) {
+		x = xbxcontrol.getX(Hand.kLeft);
+		y = xbxcontrol.getY(Hand.kLeft);
+		if(x<0&&y>d) {
 			sideLeft = -1*(Math.pow(Math.abs((x + 1) *y), .5));
 		}
-		if(x<0&&y<0) {
-			sideLeft = Math.pow((x + 1) *y, .5);
+		if(x<0&&y<nd) {
+			sideLeft = Math.pow(Math.abs((x + 1) *y), .5);
 		}
-		if(x>0 && y<0) {
-			sideLeft = Math.pow((Math.pow((Math.pow(x, 2) + Math.pow(y, 2)), .5)), .5);
+		if(x>0 && y<nd) {
+			if(Math.pow((Math.pow((Math.pow(x, 2) + Math.pow(y, 2)), .5)), .5)>d) {
+				sideLeft = Math.pow((Math.pow((Math.pow(x, 2) + Math.pow(y, 2)), .5)), .5);
+			}
+			else {
+				sideLeft = 0;
+			}
 		}
-		if(x>0 && y>0) {
-			sideLeft = -1*(Math.pow((Math.pow((Math.pow(x, 2) + Math.pow(y, 2)), .5)), .5));
+		if(x>0 && y>d) {
+			if((-1*(Math.pow((Math.pow((Math.pow(x, 2) + Math.pow(y, 2)), .5)), .5)))<nd) {
+				sideLeft = -1*(Math.pow((Math.pow((Math.pow(x, 2) + Math.pow(y, 2)), .5)), .5));
+			}
+			else {
+				sideLeft = 0;
+			}
 		}
 		
-		if (y==0 && x == 0) {
+		if (x<0 && y>nd && y<d) {
 			sideLeft = 0;
 		}
 		

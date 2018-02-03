@@ -34,7 +34,7 @@ public class SingleStickControl {
 		x = xbxcontrol.getX(Hand.kLeft);
 		y = xbxcontrol.getY(Hand.kLeft);
 		if(x>0&&y>0) {
-			sideRight =  Math.round(-1*(Math.pow(Math.abs((x-1)*y), .5)));
+			sideRight = -1*(Math.pow(Math.abs((x-1)*y), .5));
 			
 		}
 		if(x>0&&y<0) {
@@ -74,4 +74,5 @@ public class SingleStickControl {
 		
 		return sideLeft;
 	}
+	
 }

@@ -43,6 +43,10 @@ public class Drive {
 		
 		leftDrive.set(ControlMode.PercentOutput, controller.OutL());
 		rightDrive.set(ControlMode.PercentOutput, controller.OutR());
+		leftSlave1.follow(leftDrive);
+		leftSlave2.follow(leftDrive);
+		rightSlave1.follow(rightDrive);
+		rightSlave2.follow(rightDrive);
 		
 	}
 }

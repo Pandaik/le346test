@@ -4,8 +4,6 @@ public class SingleStickOut {
 	
 	private double rightSide;
 	private double leftSide;
-	private double outr;
-	private double outl;
 	
 	final double d = .2;
 	final double nd = -.2;
@@ -34,10 +32,8 @@ public class SingleStickOut {
 		if(con.ControllerOutputR() < d && con.ControllerOutputR() > nd) {
 			rightSide = 0;
 		}
-		outr = rounding.calc(rightSide);
-		return outr;
+		return rightSide;
 	}
-	//Gavin has big gay
 	public double OutL () {
 		double v = con.ControllerOutputL();
 		

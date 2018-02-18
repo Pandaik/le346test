@@ -10,11 +10,11 @@ public class SingleStickOut {
 	
 	SingleStickControl con;
 	
-	Round rounding;
+//	Round rounding;
 
 	public SingleStickOut(int control) {
 		con = new SingleStickControl(control);
-		rounding = new Round();
+//		rounding = new Round();
 		//con.getSticks();
 	}
 	
